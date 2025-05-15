@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* styles.css */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            color: #674188;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        /* Container for forms and main content */
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        /* Input styles */
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus,
+        textarea:focus {
+            border-color: #674188;
+            outline: none;
+        }
+        
+        /* Button styles */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #674188;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #453bdf;
+            transform: scale(1.05);
+        }
+        
+        /* Links */
+        a {
+            color: #674188;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* List styles */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        li {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: flex; /* Use Flexbox for alignment */
+            justify-content: space-between; /* Space between item text and buttons */
+            align-items: center; /* Center items vertically */
+        }
+        
+        li a {
+            margin-left: 10px;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        
+        li a.submit {
+            background-color: #674188;
+        }
+        
+        li a.submit:hover {
+            background-color: #453bdf;
+        }
+        
+        li a.view {
+            background-color: #28a745;
+        }
+        
+        li a.view:hover {
+            background-color: #218838;
+        }
+        
+        .admin-login {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .admin-login a {
+            background-color: #674188;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .admin-login a:hover {
+            background-color: #453bdf;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Dashboard</h1>
+
+        <h2>My Problems</h2>
+        <ul>
+            {% for problem in my_problems %}
+                <li>
+                    {{ problem[2] }} <!-- Adjust index based on your problem fields -->
+                    <div>
+                        <a href="/submit_solution/{{ problem[0] }}" class="submit">Submit Solution</a>
+                        <a href="/view_solution/{{ problem[0] }}" class="view">View Solution</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Problems To Solve</h2>
+        <ul>
+            {% for problem in problems %}
+                <li>
+                    {{ problem[2] }} <!-- Adjust index based on your problem fields -->
+                    <div>
+                        <a href="/submit_solution/{{ problem[0] }}" class="submit">Submit Solution</a>
+                        <a href="/view_solution/{{ problem[0] }}" class="view">View Solution</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="/submit_problem" style="display: block; margin-top: 20px; background-color: #674188; color: white; padding: 10px; text-align: center; border-radius: 5px; text-decoration: none;">Submit a New Problem</a>
+        <a href="/logout" style="display: block; margin-top: 10px; background-color: #674188; color: white; padding: 10px; text-align: center; border-radius: 5px; text-decoration: none;">Logout</a>
+    </div>
+</body>
+</html>

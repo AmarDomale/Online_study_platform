@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Problem</title>
+    <style>
+        .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #674188;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #453bdf;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Submit Your Problem</h1>
+        <form action="/submit_problem" method="POST">
+            <label for="problem_text">Describe your problem:</label><br>
+            <textarea id="problem_text" name="problem_text" rows="4" required></textarea><br>
+            <button type="submit">Submit Problem</button>
+        </form>
+        <a href="/dashboard">Go back to Dashboard</a>
+    </div>
+</body>
+</html>

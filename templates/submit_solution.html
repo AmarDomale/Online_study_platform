@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Solution</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* General Container Style */
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Style */
+        h1 {
+            text-align: center;
+            color: #674188;
+        }
+
+        /* Label Style */
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Textarea Style */
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            resize: vertical; /* Allows vertical resizing */
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            border-color: #674188;
+            outline: none;
+        }
+
+        /* File Input Style */
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        /* Button Styles */
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #674188;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #453bdf;
+        }
+
+        /* Link Styles */
+        a {
+            display: block; /* Makes the link occupy the full width */
+            text-align: center; /* Center the text */
+            margin-top: 20px; /* Space between button and link */
+            color: #674188;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Submit Your Solution</h1>
+        <form action="/submit_solution/{{ problem_id }}" method="POST" enctype="multipart/form-data">
+            <label for="solution_text">Solution Text:</label><br>
+            <textarea id="solution_text" name="solution_text" rows="4" required></textarea><br>
+
+            <label for="solution_image">Upload Image (optional):</label><br>
+            <input type="file" id="solution_image" name="solution_image"><br>
+
+            <button type="submit">Submit Solution</button>
+        </form>
+        <a href="/dashboard">Go back to Dashboard</a>
+    </div>
+</body>
+</html>
